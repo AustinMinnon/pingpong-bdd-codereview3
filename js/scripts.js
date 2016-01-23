@@ -17,4 +17,15 @@ var myArray = [];
   };
     return myArray;
 };
-// user interface logic
+// user interface logic NOT DONE!!!!!!!!!!!!!!!!!! :'(
+$(document).ready(function(){
+  $("#input").submit(function(event) {
+    var userNumber = $("input#userInput").val();
+    var output = pingPong(userNumber)
+    output.forEach(outputs){
+      $("#result").append("<li>" + outputs + "</li:>");
+      }
+    }
+      event.preventDefault();
+  });
+});
