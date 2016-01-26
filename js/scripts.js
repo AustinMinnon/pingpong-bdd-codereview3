@@ -1,31 +1,34 @@
 // business logic
-var pingPong = function(int){
-var myArray = [];
-  for (var i = 1; i <= int; i++){
+var pingPong = function(input){
+var toInput = [];
+  for (var i = 1; i <= input; i++){
     if(i % 3 !== 0 && i % 5 !== 0 && i % 15 !== 0){
-      myArray.push(i);
+      toInput.push(i);
     }
+
     else if (i % 15 === 0){
-      myArray.push("pingpong")
+      toInput.push("pingpong")
     }
+
     else if (i % 5 === 0){
-      myArray.push("pong");
+      toInput.push("pong");
     }
+
     else if (i % 3 === 0){
-      myArray.push("ping");
+      toInput.push("ping");
     }
   };
-    return myArray;
+  return toInput;
 };
-// user interface logic NOT DONE!!!!!!!!!!!!!!!!!! :'(
-$(document).ready(function(){
-  $("#input").submit(function(event) {
-    var userNumber = $("input#userInput").val();
-    var output = pingPong(userNumber)
-    output.forEach(outputs){
-      $("#result").append("<li>" + outputs + "</li:>");
-      }
-    }
+// user interface logic NOT DONE
+$(document).ready(function() {
+  $("form").submit(function(event) {
+  var inputtedNumber = parseInt($("input#userNumber").val());
+  var countTo = pingPong(inputtedNumber);
+    $("#countUp").empty()
+    countTo.forEach(function(outputted) {
+      $("#countUp").append("<li>" + outputted + "</li>");
       event.preventDefault();
+    })
   });
 });
